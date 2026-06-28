@@ -31,3 +31,14 @@ export function formatRangeUk(start?: string, end?: string): string {
   }
   return `${sDay} ${sMon} – ${eDay} ${eMon} ${year}`;
 }
+
+/** Числовий діапазон дат, напр. «30.08 – 05.09». */
+export function formatNumericRange(start?: string, end?: string): string {
+  if (!start) return "";
+  const pad = (n: number) => String(n).padStart(2, "0");
+  const s = new Date(start);
+  const sd = `${pad(s.getUTCDate())}.${pad(s.getUTCMonth() + 1)}`;
+  if (!end) return sd;
+  const e = new Date(end);
+  return `${sd} – ${pad(e.getUTCDate())}.${pad(e.getUTCMonth() + 1)}`;
+}
