@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  /* Брейкпоінти під дизайн: base=телефон (≤680), md=планшет (≥681), lg=десктоп (≥981) */
+  --breakpoint-xs: 421px;
+  --breakpoint-md: 681px;
+  --breakpoint-lg: 981px;
+
+  /* Кольори (з токенів хендофу) */
+  --color-ivory: #fbfaf6;
+  --color-sand: #f4efe4;
+  --color-chip: #f2ecdf;
+  --color-chip-hover: #ece3cf;
+  --color-ink: #1a1814;
+  --color-footer: #13110d;
+  --color-gold: #b3995f;
+  --color-gold-dark: #9c8348;
+  --color-text2: #5e584c;
+  --color-text3: #423d33;
+  --color-muted: #8a8475;
+  --color-muted2: #9b9484;
+  --color-line: #ece5d6;
+  --color-field: #ddd5c4;
+  --color-footgold: #d8cdb4;
+  --color-ok: #5a8a5a;
+  --color-no: #b57272;
+
+  /* Шрифти (next/font зв'яже змінні) */
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
+
+  /* Радіуси (12→rounded-xl, 24→rounded-3xl уже в Tailwind; додаємо 18px) */
+  --radius-card: 18px;
+
+  /* Тіні */
+  --shadow-card: 0 4px 24px rgba(26, 24, 20, 0.06);
+  --shadow-raised: 0 10px 40px -20px rgba(26, 24, 20, 0.3);
+  --shadow-hero: 0 30px 60px -30px rgba(26, 24, 20, 0.3);
+  --shadow-pill: 0 2px 12px rgba(26, 24, 20, 0.05);
+}
+
+body {
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-gold) 28%, transparent);
+}
