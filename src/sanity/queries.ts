@@ -28,3 +28,8 @@ export const tourBySlugQuery = `*[_type == "tour" && slug.current == $slug][0]{
 }`;
 
 export const tourSlugsQuery = `*[_type == "tour" && defined(slug.current)].slug.current`;
+
+export const catalogToursQuery = `*[_type == "tour"] | order(defined(dateStart) desc, dateStart asc){
+  "slug": slug.current, title, coverImage, tags,
+  durationDays, dateStart, dateEnd, priceEur, highlightBadge
+}`;
