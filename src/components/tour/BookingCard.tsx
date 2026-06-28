@@ -8,11 +8,15 @@ export function BookingCard({ tour, settings }: { tour: TourDetail; settings: Si
   return (
     <div className="lg:sticky lg:top-[90px]">
       <div className="rounded-[20px] border border-line bg-white p-[26px] shadow-raised">
-        <div className="mb-[18px] flex items-baseline gap-2">
-          <span className="text-[13px] font-semibold text-muted">від</span>
-          <span className="text-[34px] font-extrabold text-ink">€{tour.priceEur}</span>
-          <span className="text-[14px] font-semibold text-muted">/ особа</span>
-        </div>
+        {tour.priceEur > 0 ? (
+          <div className="mb-[18px] flex items-baseline gap-2">
+            <span className="text-[13px] font-semibold text-muted">від</span>
+            <span className="text-[34px] font-extrabold text-ink">€{tour.priceEur}</span>
+            <span className="text-[14px] font-semibold text-muted">/ особа</span>
+          </div>
+        ) : (
+          <div className="mb-[18px] text-[24px] font-extrabold text-gold-dark">Ціна за запитом</div>
+        )}
 
         <div className="mb-4 flex flex-col gap-2.5">
           {(tour.dateStart || tour.dateEnd) && (
