@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { pageNameFromPath } from "@/lib/page-name";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -13,6 +15,7 @@ const labelClass = "mb-1.5 block text-[12.5px] font-bold text-text2";
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const pathname = usePathname();
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -22,7 +25,7 @@ export function ContactForm() {
       phone: String(fd.get("phone") ?? ""),
       tour: String(fd.get("tour") ?? ""),
       message: String(fd.get("message") ?? ""),
-      source: "contacts-page",
+      source: pageNameFromPath(pathname),
       company: String(fd.get("company") ?? ""),
     };
     setStatus("submitting");
