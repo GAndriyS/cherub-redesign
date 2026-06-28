@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Check, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { pageNameFromPath } from "@/lib/page-name";
 import type { LeadPrefill } from "./LeadFormProvider";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -24,6 +26,7 @@ export function LeadDialog({
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
   const nameRef = useRef<HTMLInputElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -52,7 +55,7 @@ export function LeadDialog({
       phone: String(fd.get("phone") ?? ""),
       message: String(fd.get("message") ?? ""),
       tour: String(fd.get("tour") ?? ""),
-      source: String(fd.get("source") ?? ""),
+      source: pageNameFromPath(pathname),
       company: String(fd.get("company") ?? ""),
     };
 
@@ -131,7 +134,6 @@ export function LeadDialog({
               className="hidden"
               aria-hidden="true"
             />
-            <input type="hidden" name="source" defaultValue={prefill.source ?? "lead-modal"} />
 
             <div className="flex flex-col gap-3.5">
               <div>

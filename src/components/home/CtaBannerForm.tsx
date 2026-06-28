@@ -1,13 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { buttonClass } from "@/components/ui/Button";
+import { pageNameFromPath } from "@/lib/page-name";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
 export function CtaBannerForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const pathname = usePathname();
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -15,7 +18,7 @@ export function CtaBannerForm() {
     const payload = {
       name: "Заявка на дзвінок (банер)",
       phone: String(fd.get("phone") ?? ""),
-      source: "cta-banner",
+      source: pageNameFromPath(pathname),
       company: String(fd.get("company") ?? ""),
     };
     setStatus("submitting");

@@ -19,3 +19,12 @@ export const toursQuery = `*[_type == "tour"] | order(dateStart asc){
   "slug": slug.current, title, coverImage, tags,
   durationDays, dateStart, dateEnd, priceEur, highlightBadge
 }`;
+
+export const tourBySlugQuery = `*[_type == "tour" && slug.current == $slug][0]{
+  title, "slug": slug.current, tags, durationDays, dateStart, dateEnd,
+  priceEur, withPriest, summary, departurePoints,
+  program[]{dayNumber, title, items, photos},
+  included, notIncluded
+}`;
+
+export const tourSlugsQuery = `*[_type == "tour" && defined(slug.current)].slug.current`;
