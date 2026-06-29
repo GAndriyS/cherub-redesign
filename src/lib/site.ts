@@ -28,8 +28,8 @@ export const site: SiteSettings = {
 
   nav: [
     { label: "Головна", href: "/" },
-    { label: "Паломництва", href: "/tury" },
-    { label: "Контакти", href: "/kontakty" },
+    { label: "Паломництва", href: "/tours" },
+    { label: "Контакти", href: "/contacts" },
   ],
 
   phones: [

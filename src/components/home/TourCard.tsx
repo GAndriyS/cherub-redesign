@@ -6,7 +6,7 @@ import type { TourCard as TourCardType } from "@/lib/types";
 export function TourCard({ tour }: { tour: TourCardType }) {
   return (
     <Link
-      href={`/tury/${tour.slug}`}
+      href={`/tours/${tour.slug}`}
       className="group block overflow-hidden rounded-card bg-white shadow-card transition-all duration-200 hover:-translate-y-1 hover:shadow-raised"
     >
       <div className="relative h-[152px]">

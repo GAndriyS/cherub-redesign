@@ -48,7 +48,7 @@ export default async function TourPage({ params }: { params: Promise<{ slug: str
           Головна
         </Link>
         <span className="mx-1.5 text-[#cdc4b2]">/</span>
-        <Link href="/tury" className="transition-colors hover:text-ink">
+        <Link href="/tours" className="transition-colors hover:text-ink">
           Паломництва
         </Link>
         <span className="mx-1.5 text-[#cdc4b2]">/</span>
