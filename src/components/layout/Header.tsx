@@ -15,6 +15,7 @@ export function Header({ settings }: { settings: SiteSettings }) {
   const { open } = useLeadForm();
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -29,8 +30,21 @@ export function Header({ settings }: { settings: SiteSettings }) {
     return () => document.removeEventListener("keydown", onKey);
   }, [menuOpen]);
 
+  // Тінь під шапкою при прокрутці — щоб контент чітко «йшов під» меню
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 4);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-30 border-b border-line bg-white">
+    <header
+      className={cn(
+        "sticky top-0 z-30 border-b border-line bg-white transition-shadow duration-200",
+        scrolled && "shadow-[0_6px_24px_-10px_rgba(26,24,20,0.18)]",
+      )}
+    >
       <Container className="flex items-center justify-between py-3">
         <Link href="/" className="flex items-center" aria-label={settings.name}>
           <Image
