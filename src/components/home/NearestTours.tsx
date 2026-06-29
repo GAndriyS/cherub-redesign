@@ -49,7 +49,7 @@ export function NearestTours({
         )}
 
         <div className="mt-9 text-center">
-          <Link href="/tury" className={buttonClass("outline", undefined, "sm")}>
+          <Link href="/tours" className={buttonClass("outline", undefined, "sm")}>
             Усі паломництва →
           </Link>
         </div>

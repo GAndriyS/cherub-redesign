@@ -11,7 +11,7 @@ const placeholderStyle = {
 export function CatalogCard({ tour }: { tour: CatalogTour }) {
   return (
     <Link
-      href={`/tury/${tour.slug}`}
+      href={`/tours/${tour.slug}`}
       className="group flex flex-col overflow-hidden rounded-card bg-white shadow-card transition-all duration-200 hover:-translate-y-1 hover:shadow-raised"
     >
       <div className="relative h-[170px]">
