@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { ContactForm } from "@/components/contacts/ContactForm";
@@ -10,7 +10,7 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: "Контакти — Паломницький центр «Херувим»",
   description:
-    "Зв'яжіться з паломницьким центром «Херувим» у Львові: телефони, email, адреса офісу та форма заявки.",
+    "Зв'яжіться з паломницьким центром «Херувим» у Львові: телефони, email та форма заявки.",
 };
 
 const cardClass = "rounded-card border border-line bg-white p-6";
@@ -45,10 +45,12 @@ export default async function ContactsPage() {
           <h1 className="mt-5 text-[30px] font-extrabold leading-[1.1] tracking-[-0.01em] text-ink md:text-[36px] lg:text-[44px]">
             Зв'яжіться з нами
           </h1>
-          <p className="mt-4 max-w-[560px] text-[17px] leading-[1.7] text-text2">
-            Зателефонуйте, напишіть або завітайте до нашого офісу у центрі Львова. Радо допоможемо
-            обрати паломництво та підготуватися до дороги.
-          </p>
+          <div className="mt-4 max-w-[560px] space-y-4 text-[17px] leading-[1.7] text-text2">
+            <p>Ми завжди радо допоможемо вам обрати паломництво та підготуватися до подорожі</p>
+            <p>
+              Забронювати паломництво та уточнити деталі паломницьких турів ви можете за телефоном.
+            </p>
+          </div>
         </Container>
       </section>
 
@@ -96,17 +98,6 @@ export default async function ContactsPage() {
                 </div>
               </div>
 
-              {/* Адреса */}
-              <div className={`${cardClass} flex items-center gap-4`}>
-                <div className={iconPlaque}>
-                  <MapPin size={21} />
-                </div>
-                <div>
-                  <div className={cardLabel}>Адреса офісу</div>
-                  <div className="text-[16px] font-bold text-ink">{s.address}</div>
-                </div>
-              </div>
-
               {/* Facebook */}
               <SocialCard
                 icon={<FacebookIcon />}
@@ -121,16 +112,6 @@ export default async function ContactsPage() {
                 label="Instagram"
                 value={stripUrl(s.social.instagram)}
                 href={s.social.instagram}
-              />
-            </div>
-
-            {/* Карта */}
-            <div className="mt-4 overflow-hidden rounded-[18px] border border-line">
-              <iframe
-                title="Карта — офіс у центрі Львова"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=24.026%2C49.838%2C24.038%2C49.845&layer=mapnik&marker=49.8415%2C24.0316"
-                className="block h-[300px] w-full border-0"
-                loading="lazy"
               />
             </div>
           </div>

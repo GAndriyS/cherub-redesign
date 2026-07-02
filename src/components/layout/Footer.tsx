@@ -46,7 +46,6 @@ export function Footer({ settings }: { settings: SiteSettings }) {
             <a href={`mailto:${settings.email}`} className={linkClass}>
               {settings.email}
             </a>
-            <span>{settings.address}</span>
           </div>
         </div>
       </Container>

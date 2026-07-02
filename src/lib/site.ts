@@ -32,11 +32,7 @@ export const site: SiteSettings = {
     { label: "Контакти", href: "/contacts" },
   ],
 
-  phones: [
-    { display: "(068) 978 01 00", tel: "+380689780100" },
-    { display: "(098) 850 03 03", tel: "+380988500303" },
-    { display: "(096) 200 08 45", tel: "+380962000845" },
-  ],
+  phones: [{ display: "(068) 978 01 00", tel: "+380689780100" }],
 
   email: "palomnuctvo.heruvim@gmail.com",
   address: "Соборна площа, 12а/33, м. Львів",

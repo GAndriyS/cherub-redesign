@@ -1,6 +1,7 @@
 import { Bus, Cross, MapPin, Star } from "lucide-react";
 import type { ElementType } from "react";
 import { Container } from "@/components/ui/Container";
+import { cn } from "@/lib/cn";
 import type { Advantage, AdvantageIcon } from "@/lib/types";
 
 const icons: Record<AdvantageIcon, ElementType> = {
@@ -11,9 +12,11 @@ const icons: Record<AdvantageIcon, ElementType> = {
 };
 
 export function Advantages({ items }: { items: Advantage[] }) {
+  const lgCols =
+    items.length >= 4 ? "lg:grid-cols-4" : items.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-2";
   return (
     <Container className="pb-12 pt-16">
-      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <div className={cn("grid gap-5 md:grid-cols-2", lgCols)}>
         {items.map((a) => {
           const Icon = icons[a.icon];
           return (
