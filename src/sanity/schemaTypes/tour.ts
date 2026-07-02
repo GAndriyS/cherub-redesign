@@ -23,7 +23,7 @@ export const tour = defineType({
     defineField({
       name: "tags",
       title: "Напрямки / теги",
-      description: "Використовуються у фільтрі на головній (напр. «Меджугор'є», «Море + молитва»)",
+      description: "Використовуються у фільтрі на головній (напр. «Меджугор'є», «Християнський відпочинок на морі»)",
       type: "array",
       of: [defineArrayMember({ type: "string" })],
       options: { layout: "tags" },
