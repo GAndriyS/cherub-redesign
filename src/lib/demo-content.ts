@@ -9,7 +9,7 @@ export const featuredTours: TourCard[] = [
   {
     slug: "medjugorje-more-2",
     title: "Меджугор'є + 2 дні моря в Хорватії",
-    coverImage: "https://heruvym.com.ua/wp-content/uploads/2025/01/IMG_0666.jpg",
+    coverImage: "/images/tour-medjugorje-more.jpg",
     dateLabel: "30 серп – 5 вер 2026",
     priceEur: 230,
     badge: "7 днів",
@@ -19,8 +19,7 @@ export const featuredTours: TourCard[] = [
   {
     slug: "split-adriatica",
     title: "Християнський відпочинок на Адріатиці, Спліт",
-    coverImage:
-      "https://heruvym.com.ua/wp-content/uploads/2020/01/83594151_2919087494822233_8224738457738543104_n.jpg",
+    coverImage: "/images/tour-split-adriatica.jpg",
     dateLabel: "15 – 23 липня 2026",
     priceEur: 520,
     badge: "9 днів",
@@ -30,7 +29,7 @@ export const featuredTours: TourCard[] = [
   {
     slug: "mladifest-2026",
     title: "MLADIFEST · 5 днів у Меджугор'є + море",
-    coverImage: "https://heruvym.com.ua/wp-content/uploads/2025/02/IMG_9985-scaled.jpg",
+    coverImage: "/images/tour-mladifest.jpg",
     dateLabel: "30 лип – 7 серп 2026",
     priceEur: 300,
     badge: "MLADIFEST",
@@ -51,7 +50,7 @@ export const homeContent: HomeContent = {
       { value: "500+", label: "груп" },
     ],
     nearestDeparture: { date: "29 червня", title: "Меджугор'є" },
-    image: "https://heruvym.com.ua/wp-content/uploads/2025/02/IMG_9992-scaled.jpg",
+    image: "/images/hero-medjugorje.jpg",
   },
   tourFilters: ["Усі", "Меджугор'є", "Християнський відпочинок на морі"],
   destinations: [
