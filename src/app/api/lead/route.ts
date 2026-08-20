@@ -6,6 +6,15 @@ const schema = z.object({
   phone: z.string().trim().min(7, "Вкажіть коректний телефон"),
   message: z.string().trim().max(2000).optional().default(""),
   tour: z.string().trim().max(300).optional().default(""),
+  tourDates: z.string().trim().max(120).optional().default(""),
+  // Лише slug (не повний URL) — посилання будуємо самі, щоб у чат не потрапляли сторонні лінки
+  tourSlug: z
+    .string()
+    .trim()
+    .max(120)
+    .regex(/^[a-z0-9-]*$/i, "Некоректний тур")
+    .optional()
+    .default(""),
   source: z.string().trim().max(120).optional().default(""),
   // honeypot — приховане поле, яке заповнюють лише боти
   company: z.string().optional().default(""),
@@ -29,7 +38,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: msg }, { status: 422 });
   }
 
-  const { name, phone, message, tour, source, company } = parsed.data;
+  const { name, phone, message, tour, tourDates, tourSlug, source, company } = parsed.data;
 
   // Бот заповнив honeypot — вдаємо успіх і нічого не надсилаємо
   if (company) return NextResponse.json({ ok: true });
@@ -39,6 +48,8 @@ export async function POST(req: NextRequest) {
     `👤 <b>Ім'я:</b> ${escapeHtml(name)}`,
     `📞 <b>Телефон:</b> ${escapeHtml(phone)}`,
     tour ? `🧭 <b>Напрямок:</b> ${escapeHtml(tour)}` : "",
+    tourDates ? `📅 <b>Дати:</b> ${escapeHtml(tourDates)}` : "",
+    tourSlug ? `🔗 ${req.nextUrl.origin}/tours/${tourSlug}` : "",
     message ? `💬 <b>Повідомлення:</b> ${escapeHtml(message)}` : "",
     source ? `📍 <i>Джерело: ${escapeHtml(source)}</i>` : "",
   ]

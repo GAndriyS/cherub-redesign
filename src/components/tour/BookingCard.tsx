@@ -33,7 +33,13 @@ export function BookingCard({ tour, settings }: { tour: TourDetail; settings: Si
           ) : null}
         </div>
 
-        <BookingForm tourTitle={tour.title} />
+        <BookingForm
+          tourTitle={tour.title}
+          tourDates={
+            tour.dateStart || tour.dateEnd ? formatNumericRange(tour.dateStart, tour.dateEnd) : undefined
+          }
+          tourSlug={tour.slug}
+        />
 
         <div className="my-3 text-center text-[12.5px] text-muted2">або зв&apos;яжіться напряму</div>
         <div className="flex flex-col gap-2">

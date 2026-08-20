@@ -10,7 +10,15 @@ type Status = "idle" | "submitting" | "success" | "error";
 const fieldClass =
   "w-full rounded-xl border border-field bg-white px-3.5 py-3 text-sm text-ink placeholder:text-muted2 outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30";
 
-export function BookingForm({ tourTitle }: { tourTitle: string }) {
+export function BookingForm({
+  tourTitle,
+  tourDates,
+  tourSlug,
+}: {
+  tourTitle: string;
+  tourDates?: string;
+  tourSlug?: string;
+}) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
   const pathname = usePathname();
@@ -22,6 +30,8 @@ export function BookingForm({ tourTitle }: { tourTitle: string }) {
       name: String(fd.get("name") ?? ""),
       phone: String(fd.get("phone") ?? ""),
       tour: tourTitle,
+      tourDates: tourDates ?? "",
+      tourSlug: tourSlug ?? "",
       message: "Бронювання місця",
       source: pageNameFromPath(pathname),
       company: String(fd.get("company") ?? ""),
