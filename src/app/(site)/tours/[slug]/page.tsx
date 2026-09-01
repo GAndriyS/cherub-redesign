@@ -10,7 +10,7 @@ import { getSiteSettings } from "@/lib/site-data";
 import { formatRangeUk } from "@/lib/format";
 import { cn } from "@/lib/cn";
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
   const slugs = await getTourSlugs();

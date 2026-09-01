@@ -5,7 +5,7 @@ import { Advantages } from "@/components/home/Advantages";
 import { CtaBanner } from "@/components/home/CtaBanner";
 import { getHomeData } from "@/lib/home";
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 export default async function HomePage() {
   const { home, tours } = await getHomeData();
