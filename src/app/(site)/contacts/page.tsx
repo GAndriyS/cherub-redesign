@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/Badge";
 import { ContactForm } from "@/components/contacts/ContactForm";
 import { getSiteSettings } from "@/lib/site-data";
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Контакти — Паломницький центр «Херувим»",

@@ -5,7 +5,7 @@ import { Catalog } from "@/components/catalog/Catalog";
 import { LeadButton } from "@/components/lead/LeadButton";
 import { getCatalogTours } from "@/lib/catalog";
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Усі паломництва — Паломницький центр «Херувим»",
